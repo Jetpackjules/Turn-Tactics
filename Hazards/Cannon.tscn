@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8k77338f1snl"]
+
+[ext_resource type="Script" path="res://Hazards/Cannon.gd" id="1_8q34k"]
+[ext_resource type="Texture2D" uid="uid://btpl847chmh2f" path="res://Assets/Hazards/Cannon.png" id="1_rwmka"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nu4dn"]
+
+[node name="Cannon" type="Area2D" groups=["Active"]]
+script = ExtResource("1_8q34k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_rwmka")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_nu4dn")

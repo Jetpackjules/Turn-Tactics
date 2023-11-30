@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4e0tcimhg7wo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shqd0"]
+size = Vector2(25, 25)
+
+[node name="Ice" type="Area2D" groups=["Ice"]]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+color = Color(0.317647, 0.666667, 0.721569, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_shqd0")

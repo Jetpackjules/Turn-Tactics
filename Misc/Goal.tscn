@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://beiqfc8xhmwf2"]
+
+[ext_resource type="Texture2D" uid="uid://bw0me5v6thxeh" path="res://Assets/Crystal_Animation/Green/green_crystal_0000.png" id="1_khsxb"]
+[ext_resource type="Texture2D" uid="uid://chlmom44orfov" path="res://Assets/Crystal_Animation/Green/green_crystal_0001.png" id="2_ygpgx"]
+[ext_resource type="Texture2D" uid="uid://b1ekxmgeg38yl" path="res://Assets/Crystal_Animation/Green/green_crystal_0002.png" id="3_5vnsm"]
+[ext_resource type="Texture2D" uid="uid://gqyfpamsj6uj" path="res://Assets/Crystal_Animation/Green/green_crystal_0003.png" id="4_xb0ak"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_altyf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_khsxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ygpgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5vnsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xb0ak")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t7kp2"]
+
+[node name="Goal" type="Area2D" groups=["Goal"]]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_altyf")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.570652
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_t7kp2")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=8 format=3 uid="uid://be3630huyja8m"]
+
+[ext_resource type="Script" path="res://AI_Level.gd" id="1_218fv"]
+[ext_resource type="PackedScene" uid="uid://oaaftlhvfpug" path="res://Player/Player.tscn" id="2_sca3p"]
+[ext_resource type="PackedScene" uid="uid://c8k77338f1snl" path="res://Hazards/Cannon.tscn" id="3_du847"]
+[ext_resource type="PackedScene" uid="uid://w8vkypdvcasr" path="res://Placeholders/Box.tscn" id="4_6vwq0"]
+[ext_resource type="PackedScene" uid="uid://beiqfc8xhmwf2" path="res://Misc/Goal.tscn" id="5_22cj7"]
+[ext_resource type="PackedScene" uid="uid://d4e0tcimhg7wo" path="res://Placeholders/Ice.tscn" id="6_n7plv"]
+[ext_resource type="TileSet" uid="uid://dhubvudxtsurw" path="res://Placeholders/Demo_Tilemap.tres" id="7_lkp83"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_218fv")
+PlayerScene = ExtResource("2_sca3p")
+CannonScene = ExtResource("3_du847")
+BoxScene = ExtResource("4_6vwq0")
+GoalScene = ExtResource("5_22cj7")
+IceScene = ExtResource("6_n7plv")
+
+[node name="TileMap" type="TileMap" parent="." groups=["Wall"]]
+tile_set = ExtResource("7_lkp83")
+format = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 54.0
+offset_bottom = 54.0
+color = Color(0.121569, 1, 0.0470588, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(567, 324)

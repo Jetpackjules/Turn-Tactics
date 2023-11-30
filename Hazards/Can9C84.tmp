@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=3 uid="uid://y3mic7rjqqvu"]
+
+[ext_resource type="Script" path="res://Hazards/Cannon_Ball.gd" id="1_8sdce"]
+[ext_resource type="Texture2D" uid="uid://cbdhco2reotww" path="res://Assets/Hazards/All_Fire_Bullet_Pixel_16x16.png" id="3_qb8ol"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3efxh"]
+radius = 13.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv3eb"]
+atlas = ExtResource("3_qb8ol")
+region = Rect2(208, 288, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao6sj"]
+atlas = ExtResource("3_qb8ol")
+region = Rect2(224, 288, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35enx"]
+atlas = ExtResource("3_qb8ol")
+region = Rect2(240, 288, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0bfm"]
+atlas = ExtResource("3_qb8ol")
+region = Rect2(256, 288, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60nh8"]
+atlas = ExtResource("3_qb8ol")
+region = Rect2(416, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0nc0"]
+atlas = ExtResource("3_qb8ol")
+region = Rect2(432, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3xxi"]
+atlas = ExtResource("3_qb8ol")
+region = Rect2(448, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nieot"]
+atlas = ExtResource("3_qb8ol")
+region = Rect2(464, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o4u17"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv3eb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao6sj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35enx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0bfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35enx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0bfm")
+}],
+"loop": false,
+"name": &"Explode",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60nh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0nc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3xxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nieot")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Cannon_Ball" type="Area2D" groups=["Hazard", "Spawned"]]
+z_index = 10
+script = ExtResource("1_8sdce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_3efxh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_o4u17")
+animation = &"Explode"
+autoplay = "default"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
