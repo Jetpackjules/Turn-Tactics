@@ -10,7 +10,7 @@ extends Node2D
 @onready var tilemap: TileMap = get_node("TileMap")
 
 # Size of each tile in pixels
-const TileSize = Vector2(54, 54)
+const TileSize = Vector2(64, 64)
 
 var wall_pos_array: Array = []
 var placeholder_tile := Vector2i(9,4)
@@ -20,7 +20,7 @@ var level_data = [
 "WWWWWWWWWWWWWWWWWWWW",
 "W..........W.......G",
 "WBWWWWWWWWWW.CBWWWWW",
-"WPBIBIBIBIBIBIBIBIIW",
+"WPIIBIBIBIBIBIBIBIIW",
 "WWWWWWWWWWWWW.C.WWWW",
 "W..........W.......W",
 "W.C.WWWWWWWWWWWWWWWW",

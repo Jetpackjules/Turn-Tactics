@@ -1,6 +1,6 @@
 extends Area2D
 
-var TILE_SIZE = 54 # Adjust to your tile size
+var TILE_SIZE = 64 # Adjust to your tile size
 var direction = Vector2.ZERO
 var speed = 800 # Assuming player's speed is 200, adjust as needed
 var target_position = Vector2.ZERO
@@ -25,7 +25,7 @@ func _process(delta):
 func move_cannonball(delta):
 	var move_step = speed * delta
 	global_position = global_position.move_toward(target_position, move_step)
-	if global_position.distance_to(fired_pos) > 54:
+	if global_position.distance_to(fired_pos) > 64:
 		fired = false
 	if global_position.distance_to(target_position) < 1:
 		global_position = target_position

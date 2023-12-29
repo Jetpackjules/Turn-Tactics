@@ -1,7 +1,7 @@
 extends Area2D
 
 # Constants
-const TILE_SIZE = 54 # Change this to your tile size
+const TILE_SIZE = 64 # Change this to your tile size
 const MOVE_TIME = 0.2 # Time in seconds to move one tile
 
 const MOVE_SPEED = 400 # Speed of the movement, adjust as needed

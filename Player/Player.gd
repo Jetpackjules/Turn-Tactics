@@ -4,7 +4,7 @@ var is_alive = true # Flag to check if the player is alive
 
 
 # Constants
-const TILE_SIZE = 54 # Change this to your tile size
+const TILE_SIZE = 64 # Change this to your tile size
 const DASH_SPEED = 400 # Speed of the dash, adjust as needed
 
 # Variables
@@ -109,8 +109,8 @@ func win():
 	is_alive = false
 	animated_sprite.play("Celebrate")
 	await get_tree().create_timer(2.0).timeout
-	spawn_pos.x += 54*16
-	get_node("../Camera2D").global_position.x += 54*16.5
+	spawn_pos.x += 64*16
+	get_node("../Camera2D").global_position.x += 64*16.5
 	reset()
 
 
